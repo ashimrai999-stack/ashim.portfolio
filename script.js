@@ -100,4 +100,36 @@ function displayMessage(text, type) {
     formMessage.textContent = text;
     formMessage.classList.remove('success', 'error');
     formMessage.classList.add(type);
+}const typingText = document.querySelector(".typing-text");
+
+const texts = [
+    "It's me Ashim Rai",
+    "I am a Software Developer"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+    let current = texts[textIndex];
+
+    if (!deleting) {
+        typingText.textContent = current.substring(0, charIndex++);
+        if (charIndex > current.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1000); // pause before deleting
+            return;
+        }
+    } else {
+        typingText.textContent = current.substring(0, charIndex--);
+        if (charIndex < 0) {
+            deleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 60 : 120);
 }
+
+typeEffect();

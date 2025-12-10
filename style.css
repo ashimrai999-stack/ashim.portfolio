@@ -602,3 +602,35 @@ span {
     border: 3px solid #fff;    /* optional border */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* optional shadow */
 }
+/* Home Section Typing */
+.home-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+}
+
+.hello-text {
+    font-size: 42px;
+    
+    font-weight: bold;
+    
+}
+
+.typing-container {
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+}
+
+.cursor {
+    width: 3px;
+    background-color: #fff;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
